@@ -1,11 +1,12 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
 
 const connect = function () {
   const conn = net.createConnection({
-    host: '165.227.47.243',
-    port: 50541
-  });
+  //   host: 
+  //   port: 50541
+  // });
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
@@ -14,19 +15,19 @@ const connect = function () {
     console.log("Successfully connected to game server")
   })
 // sends name via TCP
+  // conn.on('connect', () => {
+  //   conn.write("Name: GB");
+  // });
+
   conn.on('connect', () => {
-    conn.write("Name: GB");
+    conn.write("Say: Yerr");
   });
-// moves snakes based on input 
-  conn.on('data',() => {
-    setInterval(() => {
-      conn.write("Move: right")
-    }, 50)
-  } )
+
   
   conn.on('data',function(message){
     console.log(message);
   });
+  
 
   return conn;
 

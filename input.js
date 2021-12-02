@@ -1,4 +1,6 @@
+
 let connection;
+
 const setupInput = function (connc) {
 
   connection = connc;
@@ -17,12 +19,20 @@ const handleUserInput = function (key) {
   
   }else if (key === "w"){
     console.log("Move: up")
+    connection.write("Move: up")
+
   }else if (key === "a"){
     console.log("Move: left")
+    connection.write("Move: left")
+
   }else if (key === "s"){
     console.log("Move: down")
+    connection.write("Move: down")
+
   }else if (key === "d"){
     console.log("Move: right")
+    connection.write("Move: right")
+
   } else {
     console.log ('Not a movement command')
   }
